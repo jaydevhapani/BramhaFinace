@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "428410958258",
+    "project_id": "swadha-ddf3b",
+    "storage_bucket": "swadha-ddf3b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:428410958258:android:67b76d79326689d26a74ab",
+        "android_client_info": {
+          "package_name": "com.brahmafinance"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBnWdOcT7Jj_phs2e5DRYESgjTFdV1Dw4g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:428410958258:android:abf8d989195a78f86a74ab",
+        "android_client_info": {
+          "package_name": "com.swadha"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBnWdOcT7Jj_phs2e5DRYESgjTFdV1Dw4g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
