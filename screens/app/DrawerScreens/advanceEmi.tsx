@@ -60,7 +60,7 @@ const AdvanceEmi = (props: Props) => {
 
   //clickOnPayNow
   const clickOnPayNow = () => {
-    const url = `https://finsolve.in/${BASE_PAYMENT_KEY}/pg/payment?loanid=${advanceEmi.loanid}&amount=${advanceEmi.emi_amount}&paymentfor=AdvanceEMI&channel=MobileApp`;
+    const url = `https://smpl.finsolve.in/web/pg/payment?loanid=${advanceEmi.loanid}&amount=${advanceEmi.emi_amount}&paymentfor=AdvanceEMI&channel=MobileApp`;
     console.log('====================================');
     console.log("Url :: ", url);
     console.log('====================================');

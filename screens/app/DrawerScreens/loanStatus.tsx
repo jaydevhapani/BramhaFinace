@@ -148,7 +148,7 @@ const LoanStatus = (props: Props) => {
 
   //clickOnPayNow
   const clickOnPayNow = () => {
-    const url = `https://finsolve.in/${BASE_PAYMENT_KEY}/pg/payment?loanid=${loadnDetails.loanid}&amount=${loadnDetails.overdue}&paymentfor=Overdue&channel=MobileApp`;
+    const url = `https://smpl.finsolve.in/web/pg/payment?loanid=${loadnDetails.loanid}&amount=${loadnDetails.overdue}&paymentfor=Overdue&channel=MobileApp`;
     console.log('====================================');
     console.log('Url :: ', url);
     console.log('====================================');

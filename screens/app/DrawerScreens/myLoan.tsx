@@ -8,20 +8,20 @@ import {
   TouchableOpacity,
   ScrollView,
 } from 'react-native';
-import React, {useEffect, useMemo, useState} from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import commanStyles from '../../utilies/commanStyles';
 import CommonHeader from '../../components/commonHeader';
-import {useDrawerStatus} from '@react-navigation/drawer';
+import { useDrawerStatus } from '@react-navigation/drawer';
 import i18n from '../../utilies/i18n';
 import colors from '../../utilies/colors';
 import images from '../../assests/images';
 import navigationService from '../../navigations/navigationService';
-import {ScreenName} from '../../navigations/screenName';
-import {Post_Api} from '../../apiHelper/apiHelper';
+import { ScreenName } from '../../navigations/screenName';
+import { Post_Api } from '../../apiHelper/apiHelper';
 import apiName from '../../apiHelper/apiName';
-import {useDispatch} from 'react-redux';
-import {userProfileData} from '../../reduxConfig/slices/commanSlice';
-import {useIsFocused} from '@react-navigation/native';
+import { useDispatch } from 'react-redux';
+import { userProfileData } from '../../reduxConfig/slices/commanSlice';
+import { useIsFocused } from '@react-navigation/native';
 
 type Props = {
   navigation: any;
@@ -55,12 +55,12 @@ const MyLoan = (props: Props) => {
             handleArray(json?.data?.closed, 'closed');
           }
         })
-        .catch(error => {});
-    } catch (error) {}
+        .catch(error => { });
+    } catch (error) { }
   };
 
   const handleArray = (data: any, key: string) => {
-    setLoanData(prevdata => ({...prevdata, [key]: data}));
+    setLoanData(prevdata => ({ ...prevdata, [key]: data }));
   };
 
   return (
@@ -72,7 +72,7 @@ const MyLoan = (props: Props) => {
       />
       <Text style={commanStyles.HeaderText}>{i18n.MyLoan}</Text>
       {/* Active Loans */}
-      <View style={{height: 30}} />
+      <View style={{ height: 30 }} />
       <ScrollView
         showsVerticalScrollIndicator={false}
         style={commanStyles.pH10}>
@@ -81,7 +81,7 @@ const MyLoan = (props: Props) => {
             <Text style={style.boxText}>{i18n.ActiveLoan}</Text>
             <FlatList
               data={loanData.active}
-              renderItem={({item, index}) => (
+              renderItem={({ item, index }) => (
                 <RenderItem
                   key={index}
                   index={index}
@@ -89,18 +89,18 @@ const MyLoan = (props: Props) => {
                   isActive={true}
                 />
               )}
-              ItemSeparatorComponent={() => <View style={{height: 20}} />}
+              ItemSeparatorComponent={() => <View style={{ height: 20 }} />}
             />
           </>
         )}
         {/* Closed Loans */}
-        <View style={{height: 30}} />
+        <View style={{ height: 30 }} />
         {loanData.closed && loanData.closed.length != 0 && (
           <>
             <Text style={style.boxText}>{i18n.ClosedLoan}</Text>
             <FlatList
               data={loanData.closed}
-              renderItem={({item, index}) => (
+              renderItem={({ item, index }) => (
                 <RenderItem
                   key={index}
                   index={index}
@@ -108,7 +108,7 @@ const MyLoan = (props: Props) => {
                   isActive={false}
                 />
               )}
-              ItemSeparatorComponent={() => <View style={{height: 20}} />}
+              ItemSeparatorComponent={() => <View style={{ height: 20 }} />}
             />
           </>
         )}
@@ -132,7 +132,7 @@ const RenderItem = React.memo((data: Items) => {
       key={data.index}
       style={[
         style.ItemBox,
-        {backgroundColor: data.isActive ? '#df3b37' : '#FAA0A0'},
+        { backgroundColor: data.isActive ? '#90EE90' : '#FAA0A0' },
       ]}
       onPress={() => {
         console.log(data.item);
@@ -140,35 +140,35 @@ const RenderItem = React.memo((data: Items) => {
         navigationService.navigate(ScreenName.LoanStatus, {
           loanid: data.item['loanid'],
           lan: data.item['loan_ac_no'],
-          isActive : data.isActive,
+          isActive: data.isActive,
         });
       }}>
-      <View style={{flex: 6}}>
-        <View style={{flexDirection: 'row'}}>
+      <View style={{ flex: 6 }}>
+        <View style={{ flexDirection: 'row' }}>
           <Text style={style.HeadLine}>{'LAN'}:</Text>
           <Text style={style.answerLine}>{data.item['loan_ac_no']}</Text>
         </View>
-        <View style={{flexDirection: 'row'}}>
+        <View style={{ flexDirection: 'row' }}>
           <Text style={style.HeadLine}>{'Loan Amount'}:</Text>
           <Text style={style.answerLine}>{data.item['loan_amount']}</Text>
         </View>
-        <View style={{flexDirection: 'row'}}>
+        <View style={{ flexDirection: 'row' }}>
           <Text style={style.HeadLine}>{'EMI Amount'}:</Text>
           <Text style={style.answerLine}>{data.item['emi_amount']}</Text>
         </View>
-        <View style={{flexDirection: 'row'}}>
+        <View style={{ flexDirection: 'row' }}>
           <Text style={style.HeadLine}>{'EMI Date'}:</Text>
           <Text style={style.answerLine}>{data.item['emi_date']}</Text>
         </View>
-        <View style={{flexDirection: 'row'}}>
+        <View style={{ flexDirection: 'row' }}>
           <Text style={style.HeadLine}>{'Overdue'}:</Text>
           <Text style={style.answerLine}>{data.item['overdue']}</Text>
         </View>
-        <View style={{flexDirection: 'row'}}>
+        <View style={{ flexDirection: 'row' }}>
           <Text style={style.HeadLine}>{'Start Date'}:</Text>
           <Text style={style.answerLine}>{data.item['emi_start']}</Text>
         </View>
-        <View style={{flexDirection: 'row'}}>
+        <View style={{ flexDirection: 'row' }}>
           <Text style={style.HeadLine}>{'End Date'}:</Text>
           <Text style={style.answerLine}>{data.item['emi_end']}</Text>
         </View>
@@ -184,7 +184,7 @@ const RenderItem = React.memo((data: Items) => {
           style={{
             height: 26,
             width: 26,
-            transform: [{rotate: '180deg'}],
+            transform: [{ rotate: '180deg' }],
           }}
         />
       </View>
@@ -198,7 +198,7 @@ const style = StyleSheet.create({
     borderRadius: 10,
     backgroundColor: colors.grey4,
     shadowColor: colors.lightBlack,
-    shadowOffset: {width: -2, height: 4},
+    shadowOffset: { width: -2, height: 4 },
     shadowOpacity: 0.2,
     shadowRadius: 3,
     elevation: 4,

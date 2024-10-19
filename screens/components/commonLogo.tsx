@@ -9,8 +9,8 @@ const CommonLogo = (props: Props) => {
     <Image source={images.SwadhaLogo} style={{
       alignSelf: 'center',
       marginTop: 30,
-      height: 80,
-      width: 120,
+      height: 180,
+      width: 200,
     }} />
   )
 }

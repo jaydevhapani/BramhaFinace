@@ -7,19 +7,19 @@ import {
   Image,
   ScrollView,
 } from 'react-native';
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import commanStyles from '../../utilies/commanStyles';
 import CommonHeader from '../../components/commonHeader';
 import colors from '../../utilies/colors';
 import images from '../../assests/images';
 import CommonButton from '../../components/commonButton';
-import {useDispatch} from 'react-redux';
-import {Post_Api} from '../../apiHelper/apiHelper';
-import apiName, {BASE_PAYMENT_KEY} from '../../apiHelper/apiName';
-import {AlertBox} from '../../utilies/constant';
+import { useDispatch } from 'react-redux';
+import { Post_Api } from '../../apiHelper/apiHelper';
+import apiName, { BASE_PAYMENT_KEY } from '../../apiHelper/apiName';
+import { AlertBox } from '../../utilies/constant';
 import i18n from '../../utilies/i18n';
 import navigationService from '../../navigations/navigationService';
-import {ScreenName} from '../../navigations/screenName';
+import { ScreenName } from '../../navigations/screenName';
 
 type Props = {
   navigation: any;
@@ -61,21 +61,21 @@ const EmiHolidays = (props: Props) => {
                 AlertBox({
                   Message: json?.data?.help,
                   Title: 'Help',
-                  onOkPress: () => {},
+                  onOkPress: () => { },
                 });
               }
             }
           }
         })
-        .catch(error => {});
-    } catch (error) {}
+        .catch(error => { });
+    } catch (error) { }
   };
 
   //clickOnPayNow
   const clickOnPayNow = () => {
     console.log('holyDay :: ', holyDay);
 
-    const url = `https://finsolve.in/${BASE_PAYMENT_KEY}/pg/payment?loanid=${holyDay.loanid}&amount=${holyDay.payable_amount}&paymentfor=HolidayEMI&channel=MobileApp`;
+    const url = `https://smpl.finsolve.in/web/pg/payment?loanid=${holyDay.loanid}&amount=${holyDay.payable_amount}&paymentfor=HolidayEMI&channel=MobileApp`;
     console.log('====================================');
     console.log('Url :: ', url);
     console.log('====================================');
@@ -87,7 +87,7 @@ const EmiHolidays = (props: Props) => {
       AlertBox({
         Message: 'Please accept terms of emi holidays and pay.',
         Title: i18n.Alert,
-        onOkPress: () => {},
+        onOkPress: () => { },
       });
     }
   };
@@ -115,7 +115,7 @@ const EmiHolidays = (props: Props) => {
                 AlertBox({
                   Message: holyDay.help,
                   Title: 'Help',
-                  onOkPress: () => {},
+                  onOkPress: () => { },
                 });
               }}>
               Help
@@ -125,30 +125,30 @@ const EmiHolidays = (props: Props) => {
             style={{
               width: 370,
               borderRadius: 10,
-              shadowColor: colors.lightBlack,
-              shadowOffset: {width: -2, height: 4},
-              shadowOpacity: 0.2,
-              shadowRadius: 3,
-              elevation: 4,
+              // shadowColor: colors.lightBlack,
+              // shadowOffset: {width: -2, height: 4},
+              // shadowOpacity: 0.2,
+              // shadowRadius: 3,
+              // elevation: 4,
               alignSelf: 'center',
-              backgroundColor: colors.snowBlue,
+              backgroundColor: 'white',
               marginTop: 20,
               paddingHorizontal: 20,
               paddingVertical: 20,
             }}>
-            <View style={{flexDirection: 'row'}}>
+            <View style={{ flexDirection: 'row' }}>
               <Text style={style.HeadLine}>{'LAN'}:</Text>
               <Text style={style.answerLine}>
                 {holyDay.loan_ac_no ? holyDay.loan_ac_no : ''}
               </Text>
             </View>
-            <View style={{flexDirection: 'row'}}>
+            <View style={{ flexDirection: 'row' }}>
               <Text style={style.HeadLine}>{'EMI Amount'}:</Text>
               <Text style={style.answerLine}>
                 {holyDay.emi_amount ? holyDay.emi_amount : ''}
               </Text>
             </View>
-            <View style={{flexDirection: 'row'}}>
+            <View style={{ flexDirection: 'row' }}>
               <Text style={style.HeadLine}>{'EMI Date'}:</Text>
               <Text style={style.answerLine}>
                 {holyDay.emi_date ? holyDay.emi_date : ''}
@@ -165,12 +165,12 @@ const EmiHolidays = (props: Props) => {
             <View style={style.Box}>
               <Text style={style.boxText}>Terms of Holidays EMI</Text>
               {Object.keys(holyDay.terms).map(key => (
-                <Text style={[style.boxText, {color: colors.gray1}]} key={key}>
-                 {key}.  {holyDay.terms[key]}
+                <Text style={[style.boxText, { color: colors.gray1 }]} key={key}>
+                  {key}.  {holyDay.terms[key]}
                 </Text>
               ))}
             </View>
-            <View style={{marginVertical: 30, flexDirection: 'row'}}>
+            <View style={{ marginVertical: 30, flexDirection: 'row', marginLeft: 10 }}>
               <TouchableOpacity
                 style={{
                   height: 18,
@@ -179,6 +179,9 @@ const EmiHolidays = (props: Props) => {
                   alignItems: 'center',
                   justifyContent: 'center',
                   backgroundColor: colors.colorWhite,
+                  borderColor: 'gray',
+                  borderWidth: 1,
+                  borderRadius: 2,
                 }}
                 onPress={() => setTickMark(!isTickMark)}>
                 {isTickMark && (
@@ -186,12 +189,13 @@ const EmiHolidays = (props: Props) => {
                     style={{
                       height: 15,
                       width: 15,
+                      borderRadius: 2,
                       backgroundColor: colors.LowBlue,
                     }}
                   />
                 )}
               </TouchableOpacity>
-              <Text>I agree terms of EMI Holidays and pay</Text>
+              <Text style={{ color: 'black' }}>I agree terms of EMI Holidays and pay</Text>
             </View>
             <View style={style.Box2}>
               <View
@@ -206,7 +210,7 @@ const EmiHolidays = (props: Props) => {
                     paddingHorizontal: 14,
                   },
                 ]}>
-                <View style={{flexDirection: 'row'}}>
+                <View style={{ flexDirection: 'row' }}>
                   <View
                     style={{
                       height: 20,
@@ -272,7 +276,7 @@ const style = StyleSheet.create({
     borderRadius: 10,
     backgroundColor: colors.colorWhite,
     shadowColor: colors.blackShade,
-    shadowOffset: {width: -2, height: 4},
+    shadowOffset: { width: -2, height: 4 },
     shadowOpacity: 0.2,
     shadowRadius: 3,
     elevation: 4,
@@ -289,7 +293,7 @@ const style = StyleSheet.create({
     borderRadius: 30,
     backgroundColor: colors.colorWhite,
     shadowColor: colors.lightBlack,
-    shadowOffset: {width: -2, height: 4},
+    shadowOffset: { width: -2, height: 4 },
     shadowOpacity: 0.2,
     shadowRadius: 3,
     elevation: 4,

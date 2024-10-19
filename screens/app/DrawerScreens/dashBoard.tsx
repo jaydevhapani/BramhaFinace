@@ -137,7 +137,7 @@ const RenderItem = React.memo(({item}: any, index: any) => {
   return (
     <TouchableOpacity
       key={index}
-      style={[style.ItemBox, {backgroundColor : '#df3b37'}]}
+      style={[style.ItemBox, {backgroundColor : '#90EE90'}]}
       onPress={() => {
         navigationService.navigate(ScreenName.LoanStatus, {
           loanid: item['loanid'],

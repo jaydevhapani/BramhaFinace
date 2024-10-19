@@ -1,5 +1,5 @@
-import {Image, StyleSheet, Text, View} from 'react-native';
-import React, {useState} from 'react';
+import { Image, StyleSheet, Text, View } from 'react-native';
+import React, { useState } from 'react';
 import commanStyles from '../../utilies/commanStyles';
 import colors from '../../utilies/colors';
 import CommonLogo from '../../components/commonLogo';
@@ -7,8 +7,9 @@ import CommonSwadhaText from '../../components/commonSwadhaText';
 import images from '../../assests/images';
 import i18n from '../../utilies/i18n';
 import NavigationService from '../../navigations/navigationService';
-import {ScreenName} from '../../navigations/screenName';
-import {ScrollView} from 'react-native-gesture-handler';
+import { ScreenName } from '../../navigations/screenName';
+import { ScrollView } from 'react-native-gesture-handler';
+import { HEIGHT } from '../../utilies/constant';
 
 type Props = {};
 
@@ -81,15 +82,15 @@ const Onboarding = (props: Props) => {
   };
 
   return (
-    <View style={[commanStyles.Container, {backgroundColor: '#df3b37'}]}>
+    <View style={[commanStyles.Container, { backgroundColor: 'white' }]}>
       <ScrollView>
-        <View style={{flex: 0.7}}>
+        <View style={{ height: HEIGHT / 2, justifyContent: 'flex-end' }}>
           <CommonLogo />
           <View style={commanStyles.M10}>
-            <CommonSwadhaText color={undefined} />
+            <CommonSwadhaText color={colors.colorRed} />
           </View>
         </View>
-        <View style={{flex: 1, justifyContent: 'space-between'}}>
+        {/* <View style={{flex: 1, justifyContent: 'space-between'}}>
           <View style={{flexDirection: 'row', alignItems: 'center'}}>
             <Image
               source={images.OnbordingHalf1}
@@ -123,7 +124,7 @@ const Onboarding = (props: Props) => {
               style={{height: 130, right: 30}}
             />
           </View>
-        </View>
+        </View> */}
         <View style={[styles.boxes]}>
           <Text style={styles.onBordingText}>{onBordingText}</Text>
           <Image
@@ -136,8 +137,8 @@ const Onboarding = (props: Props) => {
               flexDirection: 'row',
               justifyContent:
                 onBordingTage.onBordingTage1 ||
-                onBordingTage.onBordingTage2 ||
-                onBordingTage.onBordingTage3
+                  onBordingTage.onBordingTage2 ||
+                  onBordingTage.onBordingTage3
                   ? 'space-between'
                   : 'center',
               marginHorizontal: 20,
@@ -145,12 +146,12 @@ const Onboarding = (props: Props) => {
             {(onBordingTage.onBordingTage1 ||
               onBordingTage.onBordingTage2 ||
               onBordingTage.onBordingTage3) && (
-              <Text
-                style={styles.OnNext}
-                onPress={() => onNextAndPrevPress('')}>
-                {i18n.Preview}
-              </Text>
-            )}
+                <Text
+                  style={styles.OnNext}
+                  onPress={() => onNextAndPrevPress('')}>
+                  {i18n.Preview}
+                </Text>
+              )}
             <Text
               style={styles.OnNext}
               onPress={() => onNextAndPrevPress('isNext')}>
@@ -167,10 +168,10 @@ export default Onboarding;
 
 const styles = StyleSheet.create({
   boxes: {
-    flex: 1,
+    // flex: 0.5,
   },
   onBordingText: {
-    color: colors.colorWhite,
+    color: colors.colorRed,
     fontSize: 20,
     alignSelf: 'center',
     letterSpacing: 0.4,
@@ -183,7 +184,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   OnNext: {
-    color: colors.colorWhite,
+    color: colors.colorRed,
     fontSize: 24,
     marginTop: 20,
     alignSelf: 'center',
